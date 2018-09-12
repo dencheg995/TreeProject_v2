@@ -14,7 +14,7 @@ using namespace std;
 
 
 void TreeSort :: TreeRoot(string x, Tree **tmp) {
-
+    int a = 1 + rand() % 100;
     if(*tmp == NULL){
         *tmp = new Tree; // выделяем память под указатель корня
         (**tmp).TreeElement = x; //
@@ -24,7 +24,7 @@ void TreeSort :: TreeRoot(string x, Tree **tmp) {
 
     }
     else {
-        if(1 + rand() % 10 < 50) TreeRoot(x, &(**tmp).left);// если х меньше, чем предыдущее число в дереве, то помещаем число слева
+        if(a < 50) TreeRoot(x, &(**tmp).left);// если х меньше, чем предыдущее число в дереве, то помещаем число слева
         else TreeRoot(x, &(**tmp).right); // иначе справа
 
     }
@@ -35,13 +35,15 @@ void TreeSort::SoutTree(Tree **Sout, int l) {
 
 
     if (*Sout != NULL) {
-        SoutTree(&((**Sout).right), l + 1);
-        for (int i = 1; i <= l; i++) cout << "    "; // цикл для пробелов
-        cout << (**Sout).TreeElement << endl; // выводим значение дерева
-        SoutTree(&((**Sout).left), l + 1);
+
+            SoutTree(&((**Sout).right), l + 1);
+            for (int i = 1; i <= l; i++) cout << "    "; // цикл для пробелов
+            cout << (**Sout).TreeElement << endl;// выводим значение дерева
+            SoutTree(&((**Sout).left), l + 1);
+        }
     }
 
-}
+
 
 void TreeSort::CreateTree(list<Cars> &cars){
     list<Cars>::iterator itr = cars.begin();

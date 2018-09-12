@@ -20,7 +20,7 @@ int main() {
 
     TreeSort TREE;// создаем экземляр класса tree
     TREE.CreateTree(list);// вызываем метод и считываем данные в дерево
-    TREE.SoutTree(TREE.getValue(), 0);// выводим наше дерево
+    TREE.SoutTree(TREE.getValue(), 1);// выводим наше дерево
 
     return 0;
 }
